@@ -1,0 +1,97 @@
+/* Wrapper que dá o fundo cinza */
+.dashboard-page {
+  min-height: 100vh;
+  background-color: var(--bg-dashboard);
+}
+
+/* ── Menu topo ── */
+.menu {
+  background-color: var(--white);
+}
+
+.menu__body {
+  display: flex;
+  align-items: center;
+  width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.menu__title {
+  margin: 0;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.menu__title span {
+  display: block;
+  font-size: 12px;
+  color: var(--border);
+  font-weight: 400;
+}
+
+.menu__links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.menu__item {
+  display: inline-block;
+  padding: 0 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.menu__item:hover {
+  text-decoration: underline;
+}
+
+.menu__item--active {
+  color: var(--primary);
+}
+
+.menu__logout {
+  margin-left: 12px;
+  padding: 6px 14px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--font);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.menu__logout:hover {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* ── Conteúdo interno ── */
+.dashboard__container {
+  width: 960px;
+  margin: 0 auto;
+}
+
+/* ── Mobile ── */
+@media (max-width: 1024px) {
+  .menu__body,
+  .dashboard__container {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__links {
+    display: none;
+  }
+}

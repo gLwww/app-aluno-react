@@ -1,0 +1,159 @@
+/* Welcome */
+.welcome {
+  padding: 40px 0;
+}
+
+.welcome h2 {
+  margin: 0;
+  font-size: 32px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.welcome p {
+  color: var(--text-muted);
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+/* Card grande (em progresso) */
+.card {
+  display: flex;
+  padding: 32px;
+  margin: 30px 0;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.card__body {
+  flex-grow: 1;
+  padding-right: 50px;
+}
+
+.card__badge {
+  display: inline-block;
+  padding: 8px;
+  background-color: var(--border);
+  color: var(--primary);
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.card__title {
+  margin: 0;
+  padding-top: 16px;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.card__description {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Barra de progresso */
+.card__progress {
+  width: 75%;
+  height: 10px;
+  margin-top: 16px;
+  background-color: var(--border);
+  border-radius: 8px;
+  font-size: 9px;
+  text-align: right;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.card__progress div {
+  height: 10px;
+  background-color: var(--primary);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+
+/* Botão retomar */
+.card__button {
+  display: block;
+  align-self: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  margin-left: 30px;
+  padding: 16px 24px;
+  color: var(--white);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.card__button:hover {
+  opacity: 0.85;
+}
+
+/* Grupo de 3 cards pequenos */
+.card__group {
+  display: flex;
+  gap: 0;
+  margin-bottom: 40px;
+}
+
+.card__group .card {
+  width: 33.333%;
+  margin: 0 8px;
+}
+
+.card__group .card__badge {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.card__group .card__title {
+  margin: 8px 0 0;
+  padding-top: 0;
+  font-size: 22px;
+}
+
+.card__group .card__description {
+  font-size: 12px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .card__body,
+  .card__progress {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .card,
+  .card__group {
+    flex-direction: column;
+  }
+
+  .card__button {
+    margin-left: 0;
+    margin-top: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card__group .card {
+    width: 100%;
+    margin: 8px 0;
+  }
+}

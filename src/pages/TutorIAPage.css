@@ -1,0 +1,42 @@
+/* Estado: carregando */
+.tutor-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.tutor-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: tutor-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes tutor-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Estado: erro */
+.tutor-erro {
+  padding: 24px 32px;
+  margin: 30px 0;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+}
+
+.tutor-erro p {
+  margin: 0;
+  color: #dc2626;
+  font-size: 14px;
+}
+
+.tutor-erro .card__button {
+  margin: 16px 0 0;
+}

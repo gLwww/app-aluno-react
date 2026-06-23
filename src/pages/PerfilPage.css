@@ -1,0 +1,220 @@
+/* ── Cabeçalho do perfil ── */
+.perfil__header {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 28px;
+}
+
+.perfil__avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.perfil__nome {
+  margin: 0 0 2px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-strong);
+  letter-spacing: -0.5px;
+}
+
+.perfil__meta {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* ── Abas ── */
+.perfil__tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.perfil__tab {
+  position: relative;
+  padding: 0 0 12px;
+  background: none;
+  border: none;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.15s ease;
+}
+
+.perfil__tab:hover {
+  color: var(--text);
+}
+
+.perfil__tab--active {
+  color: var(--primary);
+}
+
+.perfil__tab--active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* ── Dados pessoais (tabela) ── */
+.dados {
+  padding: 6px 24px;
+}
+
+.dados__linha {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.dados__linha:last-child {
+  border-bottom: none;
+}
+
+.dados__rotulo {
+  width: 220px;
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.dados__valor {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.dados__valor--vazio {
+  color: var(--text-muted);
+}
+
+/* ── Configurações / Segurança ── */
+.config {
+  padding: 6px 24px;
+}
+
+.config__linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.config__linha:last-child {
+  border-bottom: none;
+}
+
+.config__texto h4 {
+  margin: 0 0 3px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.config__texto p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Seletor de tema */
+.tema-switch {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.tema-switch__btn {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tema-switch__btn--ativo {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Toggle (interruptor) */
+.toggle {
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: var(--border);
+  position: relative;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.toggle--on {
+  background: var(--primary);
+}
+
+.toggle__bola {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s ease;
+}
+
+.toggle--on .toggle__bola {
+  transform: translateX(20px);
+}
+
+/* ── Mobile ── */
+@media (max-width: 760px) {
+  .perfil__tabs {
+    gap: 18px;
+  }
+
+  .config__linha {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dados__linha {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .dados__rotulo {
+    width: auto;
+  }
+}

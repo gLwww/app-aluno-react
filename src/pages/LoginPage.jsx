@@ -37,7 +37,15 @@ export default function LoginPage() {
 
     setLoading(true)
     setTimeout(() => {
-      fazerLogin({ nome: 'João', email: form.email })
+      fazerLogin({
+        nome: 'João Silva',
+        preferencia: 'Jonh',
+        email: form.email,
+        curso: 'Engenharia de Software',
+        ano: '3º Ano',
+        cpf: '***.***.***-89',
+        telefone: '',
+      })
       navigate('/app/dashboard')
     }, 700)
   }

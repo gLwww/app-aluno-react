@@ -1,97 +1,96 @@
-/* Wrapper que dá o fundo cinza */
-.dashboard-page {
+.app-shell {
   min-height: 100vh;
-  background-color: var(--bg-dashboard);
+  background: var(--bg);
 }
 
-/* ── Menu topo ── */
+/* ── Cabeçalho ── */
 .menu {
-  background-color: var(--white);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .menu__body {
   display: flex;
   align-items: center;
-  width: 960px;
+  width: 100%;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 20px 0;
+  padding: 18px 24px;
+}
+
+.menu__brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
 }
 
 .menu__title {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 800;
   color: var(--primary);
-  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
-.menu__title span {
-  display: block;
+.menu__subtitle {
   font-size: 12px;
-  color: var(--border);
-  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
 
 .menu__links {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: 28px;
 }
 
 .menu__item {
-  display: inline-block;
-  padding: 0 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 700;
   font-size: 14px;
+  font-weight: 600;
+  transition: color 0.15s ease;
 }
 
 .menu__item:hover {
-  text-decoration: underline;
+  color: var(--text);
 }
 
 .menu__item--active {
   color: var(--primary);
 }
 
-.menu__logout {
-  margin-left: 12px;
-  padding: 6px 14px;
-  background: none;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-family: var(--font);
-  transition: color 0.15s, border-color 0.15s;
-}
-
-.menu__logout:hover {
-  color: #dc2626;
-  border-color: #dc2626;
-}
-
-/* ── Conteúdo interno ── */
-.dashboard__container {
-  width: 960px;
+/* ── Conteúdo ── */
+.app-content {
+  width: 100%;
+  max-width: 1040px;
   margin: 0 auto;
+  padding: 36px 24px;
 }
 
 /* ── Mobile ── */
-@media (max-width: 1024px) {
-  .menu__body,
-  .dashboard__container {
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+@media (max-width: 760px) {
+  .menu__body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
-}
 
-@media (max-width: 768px) {
   .menu__links {
-    display: none;
+    margin-left: 0;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .menu__item {
+    font-size: 13px;
+  }
+
+  .app-content {
+    padding: 24px 16px;
   }
 }

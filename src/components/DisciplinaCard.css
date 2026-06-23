@@ -1,0 +1,45 @@
+.disc-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.disc-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.disc-card__nome {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.disc-card__prof {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.disc-card__progress {
+  margin: 22px 0;
+}
+
+.disc-card__progress-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.disc-card .btn {
+  margin-top: auto;
+}

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useUsuario } from '../context/UsuarioContext'
 import './DashboardPage.css'
 
@@ -9,82 +8,83 @@ function saudacao() {
   return 'Boa noite'
 }
 
-function dataFormatada() {
-  return new Date().toLocaleDateString('pt-BR', {
-    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-  })
+const EM_PROGRESSO = [
+  { id: 1, nome: 'Front-end', aula: 'Aula 2: Conceitos do desenvolvimento Front-end e GIT + Github.', progresso: 65 },
+  { id: 2, nome: 'UX Design', aula: 'Aula 3: Usabilidade.', progresso: 25 },
+]
+
+function IconeRelogio() {
+  return (
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <circle cx="10" cy="10" r="7.2" />
+      <path d="M10 6v4l2.5 2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
 }
+
+function IconeTarefa() {
+  return (
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <rect x="4" y="3" width="12" height="14" rx="2" />
+      <path d="M7 8h6M7 11h6M7 14h3" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function IconeChat() {
+  return (
+    <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <path d="M4 4h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8l-4 3V5a1 1 0 0 1 1-1Z" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+const ESTATISTICAS = [
+  { id: 1, Icone: IconeRelogio, label: 'Tempo de Estudo', valor: '12h 45m', desc: 'Esta semana' },
+  { id: 2, Icone: IconeTarefa, label: 'Tarefas Pendentes', valor: '2', desc: 'Próximo vencimento em 2 dias' },
+  { id: 3, Icone: IconeChat, label: 'Discussões com IA', valor: '8', desc: 'Tópicos ativos' },
+]
 
 export default function DashboardPage() {
   const { usuario } = useUsuario()
-  const [hoje, setHoje] = useState('')
-
-  useEffect(() => {
-    setHoje(dataFormatada())
-  }, [])
+  const primeiroNome = (usuario?.nome || 'Aluno').split(' ')[0]
 
   return (
-    <div>
-      <div className="welcome">
-        <h2>{saudacao()}, {usuario?.nome}</h2>
-        <p>{hoje}</p>
-        <p>
-          Bem-vindo de volta a sua sessão de estudos focado.
-          Você tem 2 tarefas para essa semana
-          e está atualmente adiantado em seu cronograma de leitura.
-        </p>
-      </div>
+    <div className="dash">
+      <h1 className="dash__greeting">{saudacao()}, {primeiroNome}.</h1>
+      <p className="dash__intro">
+        Bem-vindo de volta à sua sessão de estudo focado. Você tem 2 tarefas para esta
+        semana e está atualmente adiantado em seu cronograma de leitura.
+      </p>
 
-      <div className="card">
-        <div className="card__body">
-          <span className="card__badge">Em progresso</span>
-          <h3 className="card__title">Front-end</h3>
-          <p className="card__description">
-            Aula 2 — Conceitos de desenvolvimento Front-end e Git + GitHub
-          </p>
-          <div className="card__progress">
-            <div style={{ width: '65%' }}>65%</div>
+      {EM_PROGRESSO.map(curso => (
+        <div className="progress-card card" key={curso.id}>
+          <div className="progress-card__info">
+            <span className="badge badge--green">Em progresso</span>
+            <h3 className="progress-card__title">{curso.nome}</h3>
+            <p className="progress-card__sub">{curso.aula}</p>
+            <div className="progress-card__bar">
+              <div className="progress__track">
+                <div className="progress__fill" style={{ width: `${curso.progresso}%` }} />
+              </div>
+              <span className="progress-card__pct">{curso.progresso}%</span>
+            </div>
           </div>
+          <button className="btn btn--primary">Retomar Estudo →</button>
         </div>
-        <button className="card__button">Retomar estudo</button>
-      </div>
+      ))}
 
-      <div className="card">
-        <div className="card__body">
-          <span className="card__badge">Em progresso</span>
-          <h3 className="card__title">UX Design</h3>
-          <p className="card__description">Aula 3 — Usabilidade</p>
-          <div className="card__progress">
-            <div style={{ width: '34%' }}>34%</div>
+      <div className="dash__stats">
+        {ESTATISTICAS.map(({ id, Icone, label, valor, desc }) => (
+          <div className="stat-card card" key={id}>
+            <div className="stat-card__head">
+              <Icone />
+              <span>{label}</span>
+            </div>
+            <h3 className="stat-card__value">{valor}</h3>
+            <p className="stat-card__desc">{desc}</p>
           </div>
-        </div>
-        <button className="card__button">Retomar estudo</button>
-      </div>
-
-      <div className="card__group">
-        <div className="card">
-          <div className="card__body">
-            <span className="card__badge">Tempo de estudo</span>
-            <h3 className="card__title">12h 45m</h3>
-            <p className="card__description">Esta semana</p>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card__body">
-            <span className="card__badge">Tarefas pendentes</span>
-            <h3 className="card__title">2</h3>
-            <p className="card__description">Próximo vencimento em 2 dias</p>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="card__body">
-            <span className="card__badge">Discussão com a IA</span>
-            <h3 className="card__title">8</h3>
-            <p className="card__description">Tópicos ativos</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   )

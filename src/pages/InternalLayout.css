@@ -76,21 +76,34 @@
 @media (max-width: 760px) {
   .menu__body {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: stretch;
+    gap: 0;
+    padding: 14px 16px 0;
   }
 
   .menu__links {
     margin-left: 0;
-    gap: 18px;
-    flex-wrap: wrap;
+    width: 100%;
+    gap: 0;
+    justify-content: space-between;
+    margin-top: 12px;
+    border-top: 1px solid var(--border);
   }
 
   .menu__item {
-    font-size: 13px;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 2px;
+    font-size: 11px;
+  }
+
+  .menu__item--active {
+    box-shadow: inset 0 2px 0 var(--primary);
   }
 
   .app-content {
-    padding: 24px 16px;
+    padding: 22px 16px;
   }
 }

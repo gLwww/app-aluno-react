@@ -40,6 +40,18 @@
   gap: 28px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 24px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.perfil__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.perfil__tab {
+  flex-shrink: 0;
 }
 
 .perfil__tab {
